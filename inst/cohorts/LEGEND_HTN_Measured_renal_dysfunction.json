@@ -1,0 +1,84 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [{
+      "isExcluded": false,
+      "concept": {
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_ID": 40796376,
+        "STANDARD_CONCEPT": "C",
+        "CONCEPT_CODE": "LP41281-4",
+        "VOCABULARY_ID": "LOINC",
+        "CONCEPT_NAME": "Creatinine | Bld-Ser-Plas",
+        "DOMAIN_ID": "Measurement",
+        "STANDARD_CONCEPT_CAPTION": "Classification",
+        "CONCEPT_CLASS_ID": "LOINC Hierarchy",
+        "INVALID_REASON": "V"
+      },
+      "includeMapped": false,
+      "includeDescendants": true
+    }]},
+    "name": "[LEGEND HTN] Creatinine measurement",
+    "id": 0
+  }],
+  "EndStrategy": {"DateOffset": {
+    "DateField": "StartDate",
+    "Offset": 1
+  }},
+  "cdmVersionRange": ">=5.0.0",
+  "CensoringCriteria": [],
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"Measurement": {
+      "Operator": null,
+      "RangeHigh": null,
+      "MeasurementTypeExclude": false,
+      "ValueAsConcept": null,
+      "CorrelatedCriteria": null,
+      "RangeHighRatio": null,
+      "CodesetId": 0,
+      "ProviderSpecialty": null,
+      "Gender": null,
+      "Unit": [{
+        "INVALID_REASON_CAPTION": "Unknown",
+        "CONCEPT_ID": 8840,
+        "STANDARD_CONCEPT": null,
+        "CONCEPT_CODE": "mg/dL",
+        "VOCABULARY_ID": "UCUM",
+        "CONCEPT_NAME": "milligram per deciliter",
+        "DOMAIN_ID": "Unit",
+        "STANDARD_CONCEPT_CAPTION": "Unknown",
+        "CONCEPT_CLASS_ID": null,
+        "INVALID_REASON": null
+      }],
+      "RangeLowRatio": null,
+      "MeasurementType": null,
+      "MeasurementSourceConcept": null,
+      "VisitType": null,
+      "ValueAsNumber": {
+        "Op": "gt",
+        "Extent": null,
+        "Value": 3
+      },
+      "First": null,
+      "OccurrenceStartDate": null,
+      "RangeLow": null,
+      "Abnormal": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}

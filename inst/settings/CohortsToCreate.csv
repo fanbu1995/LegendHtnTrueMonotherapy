@@ -1,0 +1,77 @@
+atlasId,atlasName,cohortId,name
+3010,[LEGEND HTN] Drug class - ACE inhibitors - intent-to-treat,3010,LEGEND_HTN_Drug_class__ACE_inhibitors__intenttotreat
+3011,[LEGEND HTN] Drug class - Thiazides and thiazide-like diuretics - intent-to-treat,3011,LEGEND_HTN_Drug_class__Thiazides_and_thiazidelike_diuretics__intenttotreat
+2921,[LEGEND HTN] Abdominal pain,2921,LEGEND_HTN_Abdominal_pain
+2922,[LEGEND HTN] Abnormal weight gain,2922,LEGEND_HTN_Abnormal_weight_gain
+2923,[LEGEND HTN] Abnormal weight loss,2923,LEGEND_HTN_Abnormal_weight_loss
+2924,[LEGEND HTN] Acute liver injury,2924,LEGEND_HTN_Acute_liver_injury
+2925,[LEGEND HTN] Acute myocardial infarction,2925,LEGEND_HTN_Acute_myocardial_infarction
+2926,[LEGEND HTN] Acute pancreatitis,2926,LEGEND_HTN_Acute_pancreatitis
+2927,[LEGEND HTN] Acute renal failure,2927,LEGEND_HTN_Acute_renal_failure
+2928,[LEGEND HTN] All-cause mortality,2928,LEGEND_HTN_Allcause_mortality
+2929,[LEGEND HTN] Alopecia,2929,LEGEND_HTN_Alopecia
+2930,[LEGEND HTN] Anaphylactoid reaction,2930,LEGEND_HTN_Anaphylactoid_reaction
+2931,[LEGEND HTN] Anemia,2931,LEGEND_HTN_Anemia
+2932,[LEGEND HTN] Angioedema,2932,LEGEND_HTN_Angioedema
+2933,[LEGEND HTN] Anxiety,2933,LEGEND_HTN_Anxiety
+2934,[LEGEND HTN] Bradycardia,2934,LEGEND_HTN_Bradycardia
+2935,[LEGEND HTN] Cardiac arrhythmia,2935,LEGEND_HTN_Cardiac_arrhythmia
+2936,[LEGEND HTN] Cardiovascular disease,2936,LEGEND_HTN_Cardiovascular_disease
+2937,[LEGEND HTN] Cardiovascular-related mortality,2937,LEGEND_HTN_Cardiovascularrelated_mortality
+2938,[LEGEND HTN] Chest pain or angina,2938,LEGEND_HTN_Chest_pain_or_angina
+2939,[LEGEND HTN] Chronic kidney disease,2939,LEGEND_HTN_Chronic_kidney_disease
+2940,[LEGEND HTN] Constipation,2940,LEGEND_HTN_Constipation
+2941,[LEGEND HTN] Coronary heart disease,2941,LEGEND_HTN_Coronary_heart_disease
+2942,[LEGEND HTN] Cough,2942,LEGEND_HTN_Cough
+2943,[LEGEND HTN] Decreased libido,2943,LEGEND_HTN_Decreased_libido
+2944,[LEGEND HTN] Delirium,2944,LEGEND_HTN_Delirium
+2945,[LEGEND HTN] Dementia,2945,LEGEND_HTN_Dementia
+2946,[LEGEND HTN] Depression,2946,LEGEND_HTN_Depression
+2947,[LEGEND HTN] Diarrhea,2947,LEGEND_HTN_Diarrhea
+2948,[LEGEND HTN] Edema,2948,LEGEND_HTN_Edema
+2949,[LEGEND HTN] End stage renal disease,2949,LEGEND_HTN_End_stage_renal_disease
+2950,[LEGEND HTN] Fall,2950,LEGEND_HTN_Fall
+2951,[LEGEND HTN] Fracture,2951,LEGEND_HTN_Fracture
+2952,[LEGEND HTN] Gastrointestinal bleeding,2952,LEGEND_HTN_Gastrointestinal_bleeding
+2953,[LEGEND HTN] Gout,2953,LEGEND_HTN_Gout
+2954,[LEGEND HTN] Headache,2954,LEGEND_HTN_Headache
+2955,[LEGEND HTN] Heart failure,2955,LEGEND_HTN_Heart_failure
+2956,[LEGEND HTN] Hemorrhagic stroke,2956,LEGEND_HTN_Hemorrhagic_stroke
+2957,[LEGNED HTN] Hepatic failure,2957,LEGNED_HTN_Hepatic_failure
+2958,[LEGEND HTN] Hospitalization with heart failure,2958,LEGEND_HTN_Hospitalization_with_heart_failure
+2959,[LEGEND HTN] Hospitalization with preinfarction syndrome,2959,LEGEND_HTN_Hospitalization_with_preinfarction_syndrome
+2960,[LEGEND HTN] Hyperkalemia,2960,LEGEND_HTN_Hyperkalemia
+2961,[LEGEND HTN] Hyperprolactinemia,2961,LEGEND_HTN_Hyperprolactinemia
+2962,[LEGEND HTN] Hypokalemia,2962,LEGEND_HTN_Hypokalemia
+2963,[LEGEND HTN] Hypomagnesemia,2963,LEGEND_HTN_Hypomagnesemia
+2964,[LEGEND HTN] Hyponatremia,2964,LEGEND_HTN_Hyponatremia
+2965,[LEGEND HTN] Hypotension,2965,LEGEND_HTN_Hypotension
+2966,[LEGEND HTN] Hypothyroidism,2966,LEGEND_HTN_Hypothyroidism
+2967,[LEGEND HTN] Impotence,2967,LEGEND_HTN_Impotence
+2968,[LEGEND HTN] Insomnia,2968,LEGEND_HTN_Insomnia
+2969,[LEGEND HTN] Ischemic stroke,2969,LEGEND_HTN_Ischemic_stroke
+2970,[LEGEND HTN] Kidney disease,2970,LEGEND_HTN_Kidney_disease
+2971,[LEGEND HTN] Malignant neoplasm,2971,LEGEND_HTN_Malignant_neoplasm
+2972,[LEGEND HTN] Measured renal dysfunction,2972,LEGEND_HTN_Measured_renal_dysfunction
+2973,[LEGEND HTN] Nausea,2973,LEGEND_HTN_Nausea
+2974,[LEGEND HTN] Neutropenia or agranulocytosis,2974,LEGEND_HTN_Neutropenia_or_agranulocytosis
+2975,[LEGEND HTN] Open-angle glaucoma,2975,LEGEND_HTN_Openangle_glaucoma
+2976,[LEGEND HTN] Rash,2976,LEGEND_HTN_Rash
+2977,[LEGEND HTN] Rhabdomyolysis,2977,LEGEND_HTN_Rhabdomyolysis
+2978,[LEGEND HTN] Seizure,2978,LEGEND_HTN_Seizure
+2979,[LEGEND HTN] Stroke,2979,LEGEND_HTN_Stroke
+2980,[LEGEND HTN] Sudden cardiac death,2980,LEGEND_HTN_Sudden_cardiac_death
+2981,[LEGEND HTN] Suicide and suicidal ideation,2981,LEGEND_HTN_Suicide_and_suicidal_ideation
+2982,[LEGEND HTN] Syncope,2982,LEGEND_HTN_Syncope
+2983,[LEGEND HTN] Thrombocytopenia,2983,LEGEND_HTN_Thrombocytopenia
+2984,[LEGEND HTN] Tinnitus,2984,LEGEND_HTN_Tinnitus
+2985,[LEGEND HTN] Transient ischemic attack,2985,LEGEND_HTN_Transient_ischemic_attack
+2986,[LEGEND HTN] Type 2 diabetes mellitus,2986,LEGEND_HTN_Type_2_diabetes_mellitus
+2987,[LEGEND HTN] Unconfirmed open-angle glaucoma,2987,LEGEND_HTN_Unconfirmed_openangle_glaucoma
+2988,[LEGEND HTN] Vasculitis,2988,LEGEND_HTN_Vasculitis
+2989,[LEGEND HTN] Venous thromboembolic events,2989,LEGEND_HTN_Venous_thromboembolic_events
+2990,[LEGEND HTN] Ventricular arrhythmia and sudden cardiac death,2990,LEGEND_HTN_Ventricular_arrhythmia_and_sudden_cardiac_death
+2991,[LEGEND HTN] Vertigo,2991,LEGEND_HTN_Vertigo
+2992,[LEGEND HTN] Vomiting,2992,LEGEND_HTN_Vomiting
+2993,[LEGEND HTN] Drug class - ACE inhibitors - on-treatment,2993,LEGEND_HTN_Drug_class__ACE_inhibitors__ontreatment
+2995,[LEGEND HTN] Drug class - Thiazides and thiazide-like diuretics - on-treatment,2995,LEGEND_HTN_Drug_class__Thiazides_and_thiazidelike_diuretics__ontreatment
