@@ -3,3 +3,8 @@
 .RData
 .Ruserdata
 *.tmp
+
+errorReportSql.txt
+
+
+extras/credentials.R
