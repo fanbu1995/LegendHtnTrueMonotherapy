@@ -2,6 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+.Rbuildignore
+.Rprofile
+
 *.tmp
 
 errorReportSql.txt
