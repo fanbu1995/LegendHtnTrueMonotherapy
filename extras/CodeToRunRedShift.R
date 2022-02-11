@@ -5,7 +5,7 @@ library(LEGENDHTNTrueMonotherapy)
 options(andromedaTempFolder = "d:/andromedaTemp")
 
 # Maximum number of cores to be used:
-maxCores <- parallel::detectCores()
+maxCores <- 4 #parallel::detectCores()
 
 # specify where the Drivers are
 Sys.setenv(DATABASECONNECTOR_JAR_FOLDER='D:/Drivers')
@@ -59,9 +59,9 @@ execute(connectionDetails = conn,
         databaseId = databaseId,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
-        createCohorts = TRUE,
+        createCohorts = FALSE,
         synthesizePositiveControls = FALSE,
-        runAnalyses = FALSE,
+        runAnalyses = TRUE,
         packageResults = FALSE,
         maxCores = maxCores)
 
