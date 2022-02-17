@@ -142,7 +142,8 @@ execute <- function(connectionDetails,
                   databaseName = databaseName,
                   databaseDescription = databaseDescription,
                   minCellCount = minCellCount,
-                  maxCores = maxCores)
+                  maxCores = maxCores,
+                  includeDiagnostics = covariateBalance)
   }
   
   invisible(NULL)
