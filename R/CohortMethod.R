@@ -38,6 +38,8 @@
 #'                             performance.
 #' @param maxCores             How many parallel cores should be used? If more cores are made available
 #'                             this can speed up the analyses.
+#' @param covariateBalance     Whether or not (TRUE or FALSE) to compute covariate balance (as it takes very long to run),
+#'                             with default TRUE
 #'
 #' @export
 runCohortMethod <- function(connectionDetails,
@@ -46,7 +48,8 @@ runCohortMethod <- function(connectionDetails,
                             cohortTable,
                             oracleTempSchema,
                             outputFolder,
-                            maxCores) {
+                            maxCores,
+                            covariateBalance=TRUE) {
   cmOutputFolder <- file.path(outputFolder, "cmOutput")
   if (!file.exists(cmOutputFolder)) {
     dir.create(cmOutputFolder)
@@ -86,19 +89,22 @@ runCohortMethod <- function(connectionDetails,
   analysisSummary <- addAnalysisDescription(analysisSummary, "analysisId", "analysisDescription")
   write.csv(analysisSummary, file.path(outputFolder, "analysisSummary.csv"), row.names = FALSE)
   
-  ParallelLogger::logInfo("Computing covariate balance") 
-  balanceFolder <- file.path(outputFolder, "balance")
-  if (!file.exists(balanceFolder)) {
-    dir.create(balanceFolder)
+  if(covariateBalance){
+    ParallelLogger::logInfo("Computing covariate balance") 
+    balanceFolder <- file.path(outputFolder, "balance")
+    if (!file.exists(balanceFolder)) {
+      dir.create(balanceFolder)
+    }
+    subset <- results[results$outcomeId %in% outcomesOfInterest,]
+    subset <- subset[subset$strataFile != "", ]
+    if (nrow(subset) > 0) {
+      subset <- split(subset, seq(nrow(subset)))
+      cluster <- ParallelLogger::makeCluster(min(3, maxCores))
+      ParallelLogger::clusterApply(cluster, subset, computeCovariateBalance, cmOutputFolder = cmOutputFolder, balanceFolder = balanceFolder)
+      ParallelLogger::stopCluster(cluster)
+    }
   }
-  subset <- results[results$outcomeId %in% outcomesOfInterest,]
-  subset <- subset[subset$strataFile != "", ]
-  if (nrow(subset) > 0) {
-    subset <- split(subset, seq(nrow(subset)))
-    cluster <- ParallelLogger::makeCluster(min(3, maxCores))
-    ParallelLogger::clusterApply(cluster, subset, computeCovariateBalance, cmOutputFolder = cmOutputFolder, balanceFolder = balanceFolder)
-    ParallelLogger::stopCluster(cluster)
-  }
+  
 }
 
 computeCovariateBalance <- function(row, cmOutputFolder, balanceFolder) {

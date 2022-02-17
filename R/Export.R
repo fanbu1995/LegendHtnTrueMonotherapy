@@ -28,6 +28,8 @@
 #' @param minCellCount          The minimum cell count for fields contains person counts or fractions.
 #' @param maxCores              How many parallel cores should be used? If more cores are made
 #'                              available this can speed up the analyses.
+#' @param includeDiagnostics    Whether to do `exportDiagnostics` 
+#'                              (should set to FALSE if computeCovariateBalance=FALSE in the main function)
 #'
 #' @export
 exportResults <- function(outputFolder,
@@ -35,7 +37,8 @@ exportResults <- function(outputFolder,
                           databaseName,
                           databaseDescription,
                           minCellCount = 5,
-                          maxCores) {
+                          maxCores,
+                          includeDiagnostics = TRUE) {
   exportFolder <- file.path(outputFolder, "export")
   if (!file.exists(exportFolder)) {
     dir.create(exportFolder, recursive = TRUE)
@@ -63,11 +66,13 @@ exportResults <- function(outputFolder,
                     minCellCount = minCellCount,
                     maxCores = maxCores)
   
-  exportDiagnostics(outputFolder = outputFolder,
-                    exportFolder = exportFolder,
-                    databaseId = databaseId,
-                    minCellCount = minCellCount,
-                    maxCores = maxCores)
+  if(includeDiagnostics){
+    exportDiagnostics(outputFolder = outputFolder,
+                      exportFolder = exportFolder,
+                      databaseId = databaseId,
+                      minCellCount = minCellCount,
+                      maxCores = maxCores)
+  }
   
   # Add all to zip file -------------------------------------------------------------------------------
   ParallelLogger::logInfo("Adding results to zip file")

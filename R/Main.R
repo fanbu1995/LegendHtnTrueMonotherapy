@@ -47,11 +47,14 @@
 #' @param createCohorts        Create the cohortTable table with the exposure and outcome cohorts?
 #' @param synthesizePositiveControls  Should positive controls be synthesized?
 #' @param runAnalyses          Perform the cohort method analyses?
+#' @param covariateBalance     To compute covariate balance? 
+#'                             (default is TRUE, should set to FALSE to save running time)
 #' @param packageResults       Should results be packaged for later sharing?     
 #' @param maxCores             How many parallel cores should be used? If more cores are made available
 #'                             this can speed up the analyses.
 #' @param minCellCount         The minimum number of subjects contributing to a count before it can be included 
 #'                             in packaged results.
+
 #'
 #' @examples
 #' \dontrun{
@@ -82,6 +85,7 @@ execute <- function(connectionDetails,
                     createCohorts = TRUE,
                     synthesizePositiveControls = TRUE,
                     runAnalyses = TRUE,
+                    covariateBalance = TRUE,
                     packageResults = TRUE,
                     maxCores = 4,
                     minCellCount= 5) {
@@ -118,6 +122,7 @@ execute <- function(connectionDetails,
     }
   }
   
+  # add an option to compute covariate balance OR NOT
   if (runAnalyses) {
     ParallelLogger::logInfo("Running CohortMethod analyses")
     runCohortMethod(connectionDetails = connectionDetails,
@@ -126,7 +131,8 @@ execute <- function(connectionDetails,
                     cohortTable = cohortTable,
                     oracleTempSchema = oracleTempSchema,
                     outputFolder = outputFolder,
-                    maxCores = maxCores)
+                    maxCores = maxCores,
+                    covariateBalance = covariateBalance)
   }
   
   if (packageResults) {
