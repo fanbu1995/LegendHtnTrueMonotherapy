@@ -615,7 +615,7 @@ exportMainResults <- function(outputFolder,
 
 # March 7 change by Fan: use NCs only for calibration (synthetic PCs are not done)
 calibrate <- function(subset, allControls) {
-  ncs <- subset[subset$outcomeId %in% allControls$cohortId[allControls$targetEffectSize == 1], ]
+  ncs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize == 1], ]
   ncs <- ncs[!is.na(ncs$seLogRr), ]
   if (nrow(ncs) > 5) {
     set.seed(123)
