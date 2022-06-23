@@ -116,7 +116,17 @@ computeCovariateBalance <- function(row, cmOutputFolder, balanceFolder) {
     cohortMethodData <- CohortMethod::loadCohortMethodData(cohortMethodDataFile)
     strataFile <- file.path(cmOutputFolder, row$strataFile)
     strata <- readRDS(strataFile)
-    balance <- CohortMethod::computeCovariateBalance(population = strata, cohortMethodData = cohortMethodData)
+    # April 7: a little bit of fail-safe: return nothing if `strata` is empty or does not have "stratumId" as column
+    if(nrow(strata) == 0){
+      ParallelLogger::logInfo('Strata population file has no entries!')
+      balance <- data.frame()
+    }else if(!'stratumId' %in% names(strata)){
+      ParallelLogger::logInfo('Strata population file has no column `stratumId`!')
+      balance <- data.frame()
+    }else{
+      balance <- CohortMethod::computeCovariateBalance(population = strata, 
+                                                       cohortMethodData = cohortMethodData)
+    }
     saveRDS(balance, outputFileName)
   }
 }

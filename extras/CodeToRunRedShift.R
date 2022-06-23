@@ -1,18 +1,22 @@
 
+rJava::.jinit(parameters="-Xmx32g -Xms32g -Xloggc:gc.txt", force.init = TRUE) 
+#options(java.parameters = c("-Xms100g", "-Xmx100g"))
+
 library(LEGENDHTNTrueMonotherapy)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
 options(andromedaTempFolder = "E:/andromedaTemp")
 
+
 # Maximum number of cores to be used:
-maxCores <- 8 #parallel::detectCores()
+maxCores <- 4 #parallel::detectCores()
 
 # specify where the Drivers are
 Sys.setenv(DATABASECONNECTOR_JAR_FOLDER='D:/Drivers')
 
 ## 1a. Optum DoD------------
-# cdmDatabaseSchema <- "cdm_optum_extended_dod_v1825" 
-# serverSuffix <-"optum_extended_dod" 
+# cdmDatabaseSchema <- "cdm_optum_extended_dod_v1825"
+# serverSuffix <-"optum_extended_dod"
 # cohortDatabaseSchema <- "scratch_fbu2"
 # databaseId <- "OptumDod"
 # databaseName <- "Optum Clinformatics Extended Data Mart - Date of Death (DOD)"
@@ -21,14 +25,14 @@ Sys.setenv(DATABASECONNECTOR_JAR_FOLDER='D:/Drivers')
 # outputFolder <- "E:/LegendMonotherapy_OptumDod2" # DONE # changed the save directory
 
 ## 1b. Optum EHR ---------------
-cdmDatabaseSchema <- "cdm_optum_ehr_v1821"
-serverSuffix <- "optum_ehr"
-cohortDatabaseSchema <- "scratch_fbu2"
-databaseId <- "OptumEHR"
-databaseName <- "Optum© de-identified Electronic Health Record Dataset"
-databaseDescription <- "Optum© de-identified Electronic Health Record Dataset represents Humedica’s Electronic Health Record data a medical records database. The medical record data includes clinical information, inclusive of prescriptions as prescribed and administered, lab results, vital signs, body measurements, diagnoses, procedures, and information derived from clinical Notes using Natural Language Processing (NLP)."
-tablePrefix <- "legend_monotherapy_ehr"
-outputFolder <- "E:/LegendMonotherapy_OptumEhr" # DONE
+# cdmDatabaseSchema <- "cdm_optum_ehr_v1821"
+# serverSuffix <- "optum_ehr"
+# cohortDatabaseSchema <- "scratch_fbu2"
+# databaseId <- "OptumEHR"
+# databaseName <- "Optum© de-identified Electronic Health Record Dataset"
+# databaseDescription <- "Optum© de-identified Electronic Health Record Dataset represents Humedica’s Electronic Health Record data a medical records database. The medical record data includes clinical information, inclusive of prescriptions as prescribed and administered, lab results, vital signs, body measurements, diagnoses, procedures, and information derived from clinical Notes using Natural Language Processing (NLP)."
+# tablePrefix <- "legend_monotherapy_ehr"
+# outputFolder <- "E:/LegendMonotherapy_OptumEhr" # DONE
 
 ## 2. IBM MDCD ------------------
 # cdmDatabaseSchema <- "cdm_truven_mdcd_v1714"
@@ -41,14 +45,14 @@ outputFolder <- "E:/LegendMonotherapy_OptumEhr" # DONE
 # outputFolder <- "d:/LegendMonotherapy_mdcd" # DONE
 
 ## 3. IBM CCAE ------------
-# cdmDatabaseSchema <- "cdm_truven_ccae_v1709" #"cdm_idm_ccae_seta"
-# serverSuffix <- "truven_ccae" # "ibm"
-# cohortDatabaseSchema <- "scratch_fbu2"
-# databaseId<- "CCAE"
-# databaseName <- "IBM Health MarketScan® Commercial Claims and Encounters"
-# databaseDescription <- "IBM MarketScan® Commercial Claims and Encounters (CCAE) adjudicated US health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims as well as ethnicity and Medicare eligibility. Members maintain their same identifier even if they leave the system for a brief period however the dataset lacks lab data."
-# tablePrefix <- "legend_monotherapy_ccae"
-# outputFolder <- "d:/LegendMonotherapy_ccae" # DONE
+cdmDatabaseSchema <- "cdm_truven_ccae_v1709" #"cdm_idm_ccae_seta"
+serverSuffix <- "truven_ccae" # "ibm"
+cohortDatabaseSchema <- "scratch_fbu2"
+databaseId<- "CCAE"
+databaseName <- "IBM Health MarketScan® Commercial Claims and Encounters"
+databaseDescription <- "IBM MarketScan® Commercial Claims and Encounters (CCAE) adjudicated US health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims as well as ethnicity and Medicare eligibility. Members maintain their same identifier even if they leave the system for a brief period however the dataset lacks lab data."
+tablePrefix <- "legend_monotherapy_ccae"
+outputFolder <- "E:/LegendMonotherapy_ccae7" # DONE
 
 ## 4. IBM MDCR --------------
 # cdmDatabaseSchema <- "cdm_truven_mdcr_v1838"
@@ -58,7 +62,7 @@ outputFolder <- "E:/LegendMonotherapy_OptumEhr" # DONE
 # databaseName <- "IBM Health MarketScan Medicare Supplemental and Coordination of Benefits Database"
 # databaseDescription <- "IBM Health MarketScan® Medicare Supplemental and Coordination of Benefits Database (MDCR) represents health services of retirees in the United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans. These data include adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
 # tablePrefix <- "legend_monotherapy_mdcr"
-# outputFolder <- "d:/LegendMonotherapy_mdcr" # DONE
+# outputFolder <- "E:/LegendMonotherapy_mdcr" # DONE
 
 ## fill out connection details ------------
 conn <- DatabaseConnector::createConnectionDetails(
@@ -66,7 +70,7 @@ conn <- DatabaseConnector::createConnectionDetails(
   server = paste0(keyring::key_get("epi_server"), "/", !!serverSuffix),
   port = 5439,
   user = keyring::key_get("redshiftUser"),
-  password = keyring::key_get("redshiftPassword"),
+  password = keyring::key_get("redshiftPassword"), #"4I-=YWMdc!Ci", 
   extraSettings = "ssl=true&sslfactory=com.amazon.redshift.ssl.NonValidatingFactory",
   pathToDriver = 'D:/Drivers')
 
@@ -84,7 +88,7 @@ execute(connectionDetails = conn,
         databaseId = databaseId,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
-        createCohorts = FALSE,
+        createCohorts = TRUE,
         synthesizePositiveControls = FALSE,
         runAnalyses = TRUE,
         covariateBalance = TRUE,
@@ -97,7 +101,7 @@ dataFolder <- file.path(outputFolder, "shinyData")
 
 # You can inspect the results if you want:
 prepareForEvidenceExplorer(resultsZipFile = resultsZipFile, dataFolder = dataFolder)
-launchEvidenceExplorer(dataFolder = dataFolder, blind = TRUE, launch.browser = TRUE) # need to set blind=FALSE first
+launchEvidenceExplorer(dataFolder = dataFolder, blind = FALSE, launch.browser = TRUE) # need to set blind=FALSE first
 
 
 
